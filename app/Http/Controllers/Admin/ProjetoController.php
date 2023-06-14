@@ -44,7 +44,7 @@ class ProjetoController extends Controller
     public function edit(Projeto $projeto)
     {
         $categorias = Categoria::all();
-        return view('admin.projetos.cadastrar', [
+        return view('admin.projetos.editar', [
             'categorias' => $categorias
         ]);
     }

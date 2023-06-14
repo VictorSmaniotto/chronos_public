@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\UsuarioController;
 use App\Http\Controllers\Admin\CategoriaController;
+use App\Http\Controllers\Admin\ProjetoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +27,7 @@ Route::get('/admin/usuarios/editar/{id}', [UsuarioController::class, 'edit'])->n
 Route::get('/admin/categorias', [CategoriaController::class, 'index'])->name('categorias.index');
 Route::get('/admin/categorias/cadastrar', [CategoriaController::class, 'create'])->name('categorias.create');
 Route::get('/admin/categorias/editar/{id}', [CategoriaController::class, 'edit'])->name('categorias.edit');
+
+Route::get('/admin/projetos', [ProjetoController::class, 'index'])->name('projetos.index');
+Route::get('/admin/projetos/cadastrar', [ProjetoController::class, 'create'])->name('projetos.create');
+Route::get('/admin/projetos/editar/{id}', [ProjetoController::class, 'edit'])->name('projetos.edit');
