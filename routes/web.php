@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\UsuarioController;
+use App\Http\Controllers\Admin\CategoriaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +22,7 @@ Route::get('/cadastrar', [LoginController::class, 'registrar'])->name('auth.regi
 Route::get('/admin/usuarios', [UsuarioController::class, 'index'])->name('usuarios.index');
 Route::get('/admin/usuarios/cadastrar', [UsuarioController::class, 'create'])->name('usuarios.create');
 Route::get('/admin/usuarios/editar/{id}', [UsuarioController::class, 'edit'])->name('usuarios.edit');
+
+Route::get('/admin/categorias', [CategoriaController::class, 'index'])->name('categorias.index');
+Route::get('/admin/categorias/cadastrar', [CategoriaController::class, 'create'])->name('categorias.create');
+Route::get('/admin/categorias/editar/{id}', [CategoriaController::class, 'edit'])->name('categorias.edit');

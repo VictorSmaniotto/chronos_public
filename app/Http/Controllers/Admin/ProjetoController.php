@@ -1,7 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
+
+use App\Models\Categoria;
 use App\Models\Projeto;
 use Illuminate\Http\Request;
 
@@ -20,7 +23,10 @@ class ProjetoController extends Controller
      */
     public function create()
     {
-        //
+        $categorias = Categoria::all();
+        return view('admin.projetos.cadastrar', [
+            'categorias' => $categorias
+        ]);
     }
 
     /**
@@ -31,20 +37,16 @@ class ProjetoController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Projeto $projeto)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
      */
     public function edit(Projeto $projeto)
     {
-        //
+        $categorias = Categoria::all();
+        return view('admin.projetos.cadastrar', [
+            'categorias' => $categorias
+        ]);
     }
 
     /**
