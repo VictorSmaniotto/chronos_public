@@ -13,7 +13,10 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        return view('admin.categorias.index');
+        $categorias = Categoria::paginate(15);
+        return view('admin.categorias.index', [
+            'categorias' => $categorias
+        ]);
     }
 
     /**
@@ -21,7 +24,10 @@ class CategoriaController extends Controller
      */
     public function create()
     {
-        return view('admin.categorias.cadastrar');
+        $categorias = Categoria::all();
+        return view('admin.categorias.cadastrar', [
+            'categorias' => $categorias
+        ]);
     }
 
     /**
@@ -29,7 +35,19 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nome' => 'required'
+        ]);
+
+        try {
+            $categoria = new Categoria();
+            $categoria->nome = $request->nome;
+            $categoria->save();
+
+            return redirect()->route('admin.categorias.index')->with('sucesso', 'Categoria cadastrada com sucesso!');
+        } catch (\Throwable $e) {
+            return redirect()->back()->withErrors('erro', 'Ocorreu um erro ao cadastrar, por favor tente novamente');
+        }
     }
 
 

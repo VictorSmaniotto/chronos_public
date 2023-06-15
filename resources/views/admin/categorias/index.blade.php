@@ -5,7 +5,7 @@
     <h1 class="h2">Categorias</h1>
     <div class="btn-toolbar mb-2 mb-md-0">
         <!-- Botão na Esquerda -->
-        <a href="#"
+        <a href="{{ route('admin.categorias.create') }}"
            class="btn btn-primary">Cadastrar</a>
     </div>
 </div>
@@ -26,9 +26,10 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach ($categorias as $cat)
                     <tr>
-                        <th scope="row">1</th>
-                        <td>Esportes</td>
+                        <th scope="row">{{ $cat->id }}</th>
+                        <td>{{ $cat->nome }}</td>
                         <td>
                             <a href="#"
                                class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
@@ -36,6 +37,7 @@
                                class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
                         </td>
                     </tr>
+                    @endforeach
 
                 </tbody>
             </table>

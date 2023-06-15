@@ -9,7 +9,8 @@
 </div>
 
 <div class="formulario">
-    <form class="row g-3"
+    <form action="{{ route('admin.categorias.store') }}"
+          class="row g-3"
           method="post">
 @include('admin.categorias._formulario')
     </form>
