@@ -11,7 +11,8 @@
 <div class="formulario">
     <form class="row g-3"
           method="post"
-          action="">
+          action="{{ route('admin.projetos.store') }}"
+          enctype="multipart/form-data">
           @include('admin.projetos._formulario')
     </form>
 </div>

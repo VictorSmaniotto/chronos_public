@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\Projeto;
 
 use App\Models\Categoria;
-use App\Models\Projeto;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class ProjetoController extends Controller
 {
@@ -15,7 +17,12 @@ class ProjetoController extends Controller
      */
     public function index()
     {
-        //
+        $projetos = Projeto::all();
+        $categorias = Categoria::all();
+        return view('admin.projetos.index', [
+            'projetos' => $projetos,
+            'categorias' => $categorias
+        ]);
     }
 
     /**
@@ -23,9 +30,11 @@ class ProjetoController extends Controller
      */
     public function create()
     {
-        $categorias = Categoria::all();
+        $projeto = new Projeto();
+        $categoria = Categoria::all();
         return view('admin.projetos.cadastrar', [
-            'categorias' => $categorias
+            'categoria' => $categoria,
+            'projeto' => $projeto
         ]);
     }
 
@@ -34,7 +43,30 @@ class ProjetoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'titulo' => 'required',
+            'descricao' => 'required',
+            'situacao' => 'required',
+            'capa' => 'required',
+            'categoria_id' => 'required'
+        ]);
+
+        $projeto = new Projeto();
+        $projeto->titulo = $request->titulo;
+        $projeto->descricao = $request->descricao;
+        $projeto->situacao = $request->situacao;
+        $projeto->categoria_id = $request->categoria_id;
+
+        if ($request->hasFile('capa')) {
+            $capa = $request->file('capa');
+            $capaNome = Str::random(40);
+            $capaPath = $capa->storeAs('public/projetos/', $capaNome);
+            $projeto->capa = Storage::url($capaPath);
+        }
+
+        $projeto->save();
+
+        return redirect()->route('admin.projetos.index')->with('sucesso', 'Projeto cadastrado com sucesso! 😃');
     }
 
 

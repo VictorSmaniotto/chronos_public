@@ -1,31 +1,52 @@
+@csrf
+
+@if ($errors->any())
+    @foreach ($errors->all() as $error)
+        <div>
+            {{ $error }}
+        </div>
+    @endforeach
+
+@endif
+
+
 <div class="col-md-12">
     <label for="titulo" class="form-label">Título</label>
-    <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome completo" value="">
+    <input type="text" class="form-control" name="titulo" id="titulo" placeholder="Título do Projeto" value="">
 
 </div>
 <div class="col-md-12">
-    <label for="email" class="form-label">E-mail</label>
-    <input type="text" name="email" class="form-control" id="email" placeholder="Insira o E-mail"
-        value="">
-
-</div>
-<div class="col-md-12">
-    <label for="senha" class="form-label">Senha</label>
-    <input type="password" name="password" class="form-control" id="password" placeholder="********">
+    <label for="descricao" class="form-label">Descrição</label>
+    <textarea name="descricao" id="descricao" cols="30" rows="10" class="form-control"></textarea>
 
 </div>
 
 <div class="col-md-4">
-    <label for="foto" class="form-label">Foto</label>
-    <input type="file" name="foto" class="form-control" id="foto">
+    <label for="capa" class="form-label">Capa</label>
+    <input type="file" name="capa" class="form-control" id="capa">
 
 </div>
 
 <div class="col-md-3">
-    <label for="role" class="form-label">Perfil</label>
-    <select class="form-control" id="role" name="role">
-        <option value="cliente">Cliente</option>
-        <option value="administrador">Administrador</option>
+    <label for="situacao" class="form-label">Situação</label>
+    <select class="form-control" id="situacao" name="situacao">
+        <option>Selecione a situação</option>
+        <option value="1">Iniciado</option>
+        <option value="2">Em Andamento</option>
+        <option value="3">Concluído</option>
+
+    </select>
+</div>
+
+<div class="col-md-3">
+    <label for="categoria" class="form-label">Categoria</label>
+    <select class="form-control" id="categoria" name="categoria_id">
+        <option >Selecione a Categoria</option>
+
+        @foreach ($categoria as $cate)
+            <option value="{{ $cate->id }}">{{ $cate->nome }}</option>
+        @endforeach
+
     </select>
 </div>
 

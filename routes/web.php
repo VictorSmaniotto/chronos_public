@@ -33,4 +33,5 @@ Route::delete('/admin/categorias/deletar/{id}', [CategoriaController::class, 'de
 
 Route::get('/admin/projetos', [ProjetoController::class, 'index'])->name('admin.projetos.index');
 Route::get('/admin/projetos/cadastrar', [ProjetoController::class, 'create'])->name('admin.projetos.create');
+Route::post('/admin/projetos/armazenar', [ProjetoController::class, 'store'])->name('admin.projetos.store');
 Route::get('/admin/projetos/editar/{id}', [ProjetoController::class, 'edit'])->name('admin.projetos.edit');

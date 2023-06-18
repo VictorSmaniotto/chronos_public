@@ -6,13 +6,13 @@
         <h1 class="h2">Projetos</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
             <!-- Botão na Esquerda -->
-            <a href="#"
+            <a href="{{ route('admin.projetos.create') }}"
                class="btn btn-primary">Cadastrar</a>
         </div>
     </div>
 
     {{-- Mensagem de Feedback --}}
-
+    @include('includes.alerta')
 
     <div class="conteudo-admin">
 
@@ -25,32 +25,34 @@
                             <th scope="col"
                                 width="50">ID</th>
                             <th scope="col">Título</th>
-                            <th scope="col">Situação</th>
                             <th scope="col">Categoria</th>
+                            <th scope="col">Situação</th>
                             <th scope="col"
                                 width="100">Ação</th>
                         </tr>
                     </thead>
                     <tbody>
 
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Chronos</td>
-                            <td>Finalizado</td>
-                            <td>Educação</td>
-                            <td class="d-flex">
-                                <a href="#"
-                                   class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
+                        @foreach ($projetos as $proj)
+                            <tr>
+                                <th scope="row">{{ $proj->id }}</th>
+                                <td>{{ $proj->titulo }}</td>
+                                <td>{{ $proj->categoria->nome }}</td>
+                                <td>{{ $proj->situacao }}</td>
+                                <td class="d-flex">
+                                    <a href="#"
+                                    class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
 
-                                <button class="btn btn-danger btn-sm ms-2"
-                                        type="submit"
-                                        name="Delete">
-                                    <i class="fas fa-trash"></i>
-                                </button>
+                                    <button class="btn btn-danger btn-sm ms-2"
+                                            type="submit"
+                                            name="Delete">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
 
 
-                            </td>
-                        </tr>
+                                </td>
+                            </tr>
+                        @endforeach
 
 
                     </tbody>
@@ -61,4 +63,4 @@
         </div>
 
     </div>
-    @endsection
+@endsection
