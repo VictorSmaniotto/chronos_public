@@ -9,7 +9,7 @@
            class="btn btn-primary">Cadastrar</a>
     </div>
 </div>
-
+@include('includes.alerta')
 <div class="conteudo-admin">
 
     <div class="tabela-registros">
@@ -31,10 +31,14 @@
                         <th scope="row">{{ $cat->id }}</th>
                         <td>{{ $cat->nome }}</td>
                         <td>
-                            <a href="#"
+                            <a href="{{ route('admin.categorias.edit', $cat->id) }}"
                                class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
-                            <a href="#"
-                               class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
+                            <form action="{{ route('admin.categorias.destroy', $cat->id) }}" method="post" class="d-inline">
+                                @method('delete')
+                                @csrf
+
+                                <button class="btn btn-danger btn-sm" onclick="return confirm('Tem certeza que deseja excluir este registro?')"><i class="fas fa-trash"></i></button>
+                            </form>
                         </td>
                     </tr>
                     @endforeach

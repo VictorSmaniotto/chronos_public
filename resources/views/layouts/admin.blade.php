@@ -161,21 +161,21 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link"
-                               href="#">
+                               href="{{ route('admin.projetos.index') }}">
                                 <i class="fas fa-box pe-2"></i>
                                 Projetos
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link"
-                               href="#">
+                               href="{{ route('admin.categorias.index') }}">
                                 <i class="fas fa-tags pe-2"></i>
                                 Categorias
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link"
-                               href="#">
+                               href="{{ route('admin.usuarios.index') }}">
                                 <i class="fas fa-users pe-2"></i>
                                 Usuários
                             </a>

@@ -28,6 +28,8 @@ Route::get('/admin/categorias', [CategoriaController::class, 'index'])->name('ad
 Route::get('/admin/categorias/cadastrar', [CategoriaController::class, 'create'])->name('admin.categorias.create');
 Route::post('/admin/categorias/armazenar', [CategoriaController::class, 'store'])->name('admin.categorias.store');
 Route::get('/admin/categorias/editar/{id}', [CategoriaController::class, 'edit'])->name('admin.categorias.edit');
+Route::put('/admin/categorias/atualizar/{id}', [CategoriaController::class, 'update'])->name('admin.categorias.update');
+Route::delete('/admin/categorias/deletar/{id}', [CategoriaController::class, 'destroy'])->name('admin.categorias.destroy');
 
 Route::get('/admin/projetos', [ProjetoController::class, 'index'])->name('admin.projetos.index');
 Route::get('/admin/projetos/cadastrar', [ProjetoController::class, 'create'])->name('admin.projetos.create');

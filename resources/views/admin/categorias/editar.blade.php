@@ -9,8 +9,10 @@
 </div>
 
 <div class="formulario">
-    <form class="row g-3"
+    <form action="{{ route('admin.categorias.update', $categoria->id) }}"
+          class="row g-3"
           method="post">
+          @method('PUT')
 @include('admin.categorias._formulario')
     </form>
 </div>
