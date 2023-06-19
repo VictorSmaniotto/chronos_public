@@ -145,7 +145,7 @@
         </button>
 
         <div class="w-md-100 rounded-0 border-0 text-white px-4 text-end">
-            Olá, Nome do usuário Logado
+            Olá, Victor! 😎
         </div>
         <div class="navbar-nav">
             <div class="nav-item text-nowrap logout">
