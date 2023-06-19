@@ -16,6 +16,12 @@
           integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
           crossorigin="anonymous"
           referrerpolicy="no-referrer" />
+          {{-- Editor de texto --}}
+          <link rel="stylesheet" href="{{ asset('editor/tinymce.min.css') }}">
+          <script src="{{ asset('editor/langs/pt_BR.js') }}"></script>
+
+          <script src="{{ asset('editor/tinymce.min.js') }}"></script>
+
     <title>@yield('titulo') :: Área Administrativa</title>
 
     <style>
@@ -104,6 +110,7 @@
         }
 
         @media (max-width: 767.98px) {
+
             .sidebar {
                 /* top: 5rem; */
             }
@@ -115,6 +122,10 @@
                 background-color: rgba(0, 0, 0, .25);
                 box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);
             }
+
+            .navbar-dark, .navbar-brand{
+            background-color: #0052A1 !important;
+        }
         }
     </style>
 </head>
@@ -202,6 +213,16 @@
         Copyright &copy;2023 - Todos os direitos reservados
 
     </footer>
+    <script>
+        tinymce.init({
+            selector: '#descricao' ,
+            menubar: false,
+            language: 'pt_BR',
+            width: '100%',
+            height: '500px'
+        });
+    </script>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"

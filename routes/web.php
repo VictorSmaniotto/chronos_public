@@ -35,3 +35,5 @@ Route::get('/admin/projetos', [ProjetoController::class, 'index'])->name('admin.
 Route::get('/admin/projetos/cadastrar', [ProjetoController::class, 'create'])->name('admin.projetos.create');
 Route::post('/admin/projetos/armazenar', [ProjetoController::class, 'store'])->name('admin.projetos.store');
 Route::get('/admin/projetos/editar/{id}', [ProjetoController::class, 'edit'])->name('admin.projetos.edit');
+Route::put('/admin/projetos/atualizar/{id}', [ProjetoController::class, 'update'])->name('admin.projetos.update');
+Route::delete('/admin/projetos/deletar/{id}', [ProjetoController::class, 'destroy'])->name('admin.projetos.destroy');

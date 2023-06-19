@@ -11,7 +11,10 @@
 
     <div class="formulario">
         <form class="row g-3"
-              method="post">
+              method="post"
+              action="{{ route('admin.projetos.update', $projeto->id) }}"
+              enctype="multipart/form-data">
+              @method('PUT')
         @include('admin.projetos._formulario')
         </form>
     </div>

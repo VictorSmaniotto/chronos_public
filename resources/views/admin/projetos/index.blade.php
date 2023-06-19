@@ -40,16 +40,14 @@
                                 <td>{{ $proj->categoria->nome }}</td>
                                 <td>{{ $proj->situacao }}</td>
                                 <td class="d-flex">
-                                    <a href="#"
-                                    class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
+                                    <a href="{{ route('admin.projetos.edit', $proj->id) }}"
+                                    class="btn btn-primary btn-sm me-1"><i class="fas fa-edit"></i></a>
+                                    <form action="{{ route('admin.projetos.destroy', $proj->id) }}" method="post" class="d-inline">
+                                        @method('delete')
+                                        @csrf
 
-                                    <button class="btn btn-danger btn-sm ms-2"
-                                            type="submit"
-                                            name="Delete">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
-
-
+                                        <button class="btn btn-danger btn-sm" onclick="return confirm('Tem certeza que deseja excluir este Projeto? Este é um processo irreversível!')"><i class="fas fa-trash"></i></button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach

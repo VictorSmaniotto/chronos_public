@@ -34,7 +34,7 @@ class ProjetoController extends Controller
         $categoria = Categoria::all();
         return view('admin.projetos.cadastrar', [
             'categoria' => $categoria,
-            'projeto' => $projeto
+            'projeto' => $projeto,
         ]);
     }
 
@@ -73,27 +73,59 @@ class ProjetoController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Projeto $projeto)
+    public function edit($id)
     {
-        $categorias = Categoria::all();
+        $projeto = Projeto::findOrFail($id);
+        $categoria = Categoria::all();
         return view('admin.projetos.editar', [
-            'categorias' => $categorias
+            'categoria' => $categoria,
+            'projeto' => $projeto
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Projeto $projeto)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'titulo' => 'required',
+            'descricao' => 'required',
+            'situacao' => 'required',
+            'categoria_id' => 'required'
+        ]);
+
+        $projeto = Projeto::findOrFail($id);
+        $projeto->titulo = $request->titulo;
+        $projeto->descricao = $request->descricao;
+        $projeto->situacao = $request->situacao;
+        $projeto->categoria_id = $request->categoria_id;
+
+        if ($request->hasFile('capa')) {
+            Storage::delete('public/projetos/' . basename($projeto->capa));
+            $capa = $request->file('capa');
+            $capaNome = Str::random(40);
+            $capaPath = $capa->storeAs('public/projetos/', $capaNome);
+            $projeto->capa = Storage::url($capaPath);
+        }
+
+        $projeto->save();
+
+        return redirect()->route('admin.projetos.index')->with('sucesso', 'Projeto alterado com sucesso! 😃');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Projeto $projeto)
+    public function destroy($id)
     {
-        //
+        $projeto = Projeto::findOrFail($id);
+
+        if ($projeto->delete()) {
+            Storage::delete('public/projetos/' . basename($projeto->capa));
+            return redirect()->route('admin.projetos.index')->with('sucesso', 'Projeto deletado com sucesso!');
+        } else {
+            return redirect()->route('admin.projetos.index')->with('erro', 'Houve um erro ao deletar o Projeto!');
+        }
     }
 }

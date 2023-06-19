@@ -23,6 +23,6 @@ class Projeto extends Model
             // Adicione mais opções de situação conforme necessário
         ];
 
-        return $situacao[$value] ?? 'Desconhecido';
+        return $situacao[$value] ?? $value;
     }
 }
