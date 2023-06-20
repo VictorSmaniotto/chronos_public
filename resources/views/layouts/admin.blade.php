@@ -145,12 +145,12 @@
         </button>
 
         <div class="w-md-100 rounded-0 border-0 text-white px-4 text-end">
-            Olá, Victor! 😎
+            Olá, {{ Auth::user()->nome }}! 😎
         </div>
         <div class="navbar-nav">
             <div class="nav-item text-nowrap logout">
                 <a class="nav-link px-3 btn-secondary me-2"
-                   href="#">Sair</a>
+                   href="{{ route('auth.login.logout') }}">Sair</a>
             </div>
         </div>
 

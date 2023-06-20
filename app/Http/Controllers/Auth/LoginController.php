@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -12,8 +13,19 @@ class LoginController extends Controller
         return view('auth.login');
     }
 
+    public function autenticar(Request $request)
+    {
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+            return redirect()->intended('/admin');
+        }
+
+        return back()->withErrors(['email' => 'E-mail ou Senha inválido!']);
+    }
+
     public function logout()
     {
+        Auth::logout();
+        return redirect('/login');
     }
 
     public function registrar()

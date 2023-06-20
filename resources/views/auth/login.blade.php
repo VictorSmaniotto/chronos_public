@@ -1,7 +1,7 @@
 @extends('layouts.auth')
 
 @section('conteudo')
-    <form action="" method="post">
+    <form action="{{ route('auth.login.autenticar') }}" method="post">
         @csrf
         <div class="text-center">
             <img class="mb-4 img-fluid" src="{{ asset('img/logoChronos.png') }}" alt="" width="250">
@@ -33,4 +33,7 @@
         <button class="w-100 btn btn-lg btn-primary" type="submit">Entrar</button>
 
     </form>
+    <div class="col-md-12 mx-auto p-1 mt-3 text-center text-muted">
+        <span>Não tem uma conta? Solicite seu acesso <a href="{{ route('auth.registro') }}">Clicando Aqui!</a></span>
+    </div>
 @endsection
