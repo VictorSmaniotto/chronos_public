@@ -216,7 +216,7 @@
     <script>
         tinymce.init({
             selector: '#descricao' ,
-            menubar: false,
+            menubar: true,
             language: 'pt_BR',
             width: '100%',
             height: '500px'

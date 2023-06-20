@@ -27,7 +27,6 @@
 </div>
 
 
-
 <div class="col-md-4">
     <label for="capa" class="form-label">Capa</label>
     <input type="file" name="capa" class="form-control" id="capa">

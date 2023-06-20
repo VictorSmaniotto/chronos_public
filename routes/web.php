@@ -31,6 +31,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/admin/usuarios', [UsuarioController::class, 'index'])->name('admin.usuarios.index');
     Route::get('/admin/usuarios/cadastrar', [UsuarioController::class, 'create'])->name('admin.usuarios.create');
+    Route::post('/admin/usuarios/armazenar', [UsuarioController::class, 'store'])->name('admin.usuarios.store');
     Route::get('/admin/usuarios/editar/{id}', [UsuarioController::class, 'edit'])->name('admin.usuarios.edit');
 
     Route::get('/admin/categorias', [CategoriaController::class, 'index'])->name('admin.categorias.index');

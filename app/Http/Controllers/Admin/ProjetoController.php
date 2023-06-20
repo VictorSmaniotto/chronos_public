@@ -59,7 +59,7 @@ class ProjetoController extends Controller
 
         if ($request->hasFile('capa')) {
             $capa = $request->file('capa');
-            $capaNome = Str::random(40);
+            $capaNome = $capa->hashName();
             $capaPath = $capa->storeAs('public/projetos/', $capaNome);
             $projeto->capa = Storage::url($capaPath);
         }

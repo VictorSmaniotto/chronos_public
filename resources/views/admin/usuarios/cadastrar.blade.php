@@ -11,7 +11,7 @@
 <div class="formulario">
     <form class="row g-3"
           method="post"
-          action="">
+          action="{{ route('admin.usuarios.store') }}">
           @include('admin.usuarios._formulario')
     </form>
 </div>
