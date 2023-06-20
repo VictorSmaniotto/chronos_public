@@ -11,7 +11,7 @@
           rel="stylesheet"
           integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
           crossorigin="anonymous" />
-    <title>Burger</title>
+    <title>Chronos</title>
 
     <style>
         body {
@@ -23,8 +23,11 @@
         }
 
         .form-signin {
-            max-width: 330px;
-            padding: 15px;
+            max-width: 450px;
+            padding: 60px 25px;
+            background-color: #fff;
+            box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+            border-radius: 2rem;
         }
 
         .form-signin .form-floating:focus-within {
@@ -42,13 +45,20 @@
             border-top-left-radius: 0;
             border-top-right-radius: 0;
         }
+
+        @media (max-width: 767.98px)
+        {
+           //
+        }
     </style>
 </head>
 
 <body class="d-flex flex-column min-vh-100">
 
     <main class="form-signin w-100 m-auto">
+
         @yield('conteudo')
+
     </main>
 
 
