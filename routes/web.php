@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\UsuarioController;
 use App\Http\Controllers\Admin\CategoriaController;
 use App\Http\Controllers\Admin\ProjetoController;
+use App\Http\Controllers\Site\SiteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,9 @@ use App\Http\Controllers\Admin\ProjetoController;
 Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/login/autenticar', [LoginController::class, 'autenticar'])->name('auth.login.autenticar');
 Route::get('/cadastrar', [LoginController::class, 'registrar'])->name('auth.registro');
+
+Route::get('/', [SiteController::class, 'index'])->name('site.index');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/logout', [LoginController::class, 'logout'])->name('auth.login.logout');
