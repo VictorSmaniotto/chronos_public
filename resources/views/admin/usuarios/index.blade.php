@@ -11,7 +11,8 @@
         </div>
     </div>
 
-    {{-- Mensagem de Feedback --}}
+     {{-- Mensagem de Feedback --}}
+     @include('includes.alerta')
 
 
     <div class="conteudo-admin">
@@ -43,11 +44,12 @@
                             <a href="{{ route('admin.usuarios.edit', $user->id) }}"
                                class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
 
-                            <button class="btn btn-danger btn-sm ms-2"
-                                    type="submit"
-                                    name="Delete">
-                                <i class="fas fa-trash"></i>
-                            </button>
+                               <form action="{{ route('admin.usuarios.destroy', $user->id) }}" method="post" class="d-inline">
+                                @method('delete')
+                                @csrf
+
+                                <button class="btn btn-danger btn-sm ms-1" onclick="return confirm('Tem certeza que deseja excluir este Usuário? Este é um processo irreversível!')"><i class="fas fa-trash"></i></button>
+                            </form>
 
 
                         </td>

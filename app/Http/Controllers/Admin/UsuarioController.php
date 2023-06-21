@@ -41,29 +41,23 @@ class UsuarioController extends Controller
             'nome' => 'required',
             'email' => 'required',
             'password' => 'required',
+            'foto' => 'required',
             'perfil' => 'required',
-            'foto' => 'required'
         ]);
 
-        // Verifica se a pasta existe
-        if (!Storage::exists('public/usuarios/')) {
-            // Cria a pasta com permissões adequadas
-            Storage::makeDirectory('public/usuarios/');
-        }
-
-        $fotoPath = '';
-        if ($request->hasFile('foto')) {
-            $foto = $request->file('foto');
-            $fotoNome = $foto->hashName();
-            $fotoPath = $foto->storeAs('public/usuarios/', $fotoNome);
-        }
 
         $usuario = new User();
         $usuario->nome = $request->nome;
         $usuario->email = $request->email;
-        $usuario->password = $request->password;
+        $usuario->password = bcrypt($request->password);
         $usuario->perfil = $request->perfil;
-        $usuario->foto = Storage::url($fotoPath);
+
+        if ($request->hasFile('foto')) {
+            $foto = $request->file('foto');
+            $fotoNome = $foto->hashName();
+            $fotoPath = $foto->storeAs('public/usuarios/', $fotoNome);
+            $usuario->foto = Storage::url($fotoPath);
+        }
 
 
         $usuario->save();
@@ -85,9 +79,37 @@ class UsuarioController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'nome' => 'required',
+            'email' => 'required|email|unique:users,id,{$id}',
+            'password' => 'nullable|min:8',
+            'perfil' => 'required',
+        ]);
+
+
+
+        $usuario = User::findOrFail($id);
+        $usuario->nome = $request->nome;
+        $usuario->email = $request->email;
+        $usuario->perfil = $request->perfil;
+
+        if (!empty($request->password)) {
+            $usuario->password = bcrypt($request->password);
+        }
+
+        if ($request->hasFile('foto')) {
+            $foto = $request->file('foto');
+            $fotoNome = $foto->hashName();
+            $fotoPath = $foto->storeAs('public/usuarios/', $fotoNome);
+            $usuario->foto = Storage::url($fotoPath);
+        }
+
+
+        $usuario->save();
+
+        return redirect()->route('admin.usuarios.index')->with('sucesso', 'Usuário editado com sucesso! 😃');
     }
 
     /**
@@ -95,6 +117,13 @@ class UsuarioController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $usuario = User::findOrFail($id);
+
+        if ($usuario->delete()) {
+            Storage::delete('public/usuarios/' . basename($usuario->foto));
+            return redirect()->route('admin.usuarios.index')->with('sucesso', 'Usuário deletado com sucesso!');
+        } else {
+            return redirect()->route('admin.usuarios.index')->with('erro', 'Houve um erro ao deletar o Usuário!');
+        }
     }
 }

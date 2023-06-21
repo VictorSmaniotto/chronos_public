@@ -33,6 +33,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/usuarios/cadastrar', [UsuarioController::class, 'create'])->name('admin.usuarios.create');
     Route::post('/admin/usuarios/armazenar', [UsuarioController::class, 'store'])->name('admin.usuarios.store');
     Route::get('/admin/usuarios/editar/{id}', [UsuarioController::class, 'edit'])->name('admin.usuarios.edit');
+    Route::put('/admin/usuarios/atualizar/{id}', [UsuarioController::class, 'update'])->name('admin.usuarios.update');
+    Route::delete('admin/usuarios/deletar/{id}', [UsuarioController::class, 'destroy'])->name('admin.usuarios.destroy');
 
     Route::get('/admin/categorias', [CategoriaController::class, 'index'])->name('admin.categorias.index');
     Route::get('/admin/categorias/cadastrar', [CategoriaController::class, 'create'])->name('admin.categorias.create');
