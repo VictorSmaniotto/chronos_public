@@ -1532,7 +1532,7 @@ header p {
 }
 
 header.major > :last-child {
-    border-bottom: solid 3px #f56a6a;
+    border-bottom: solid 3px #004a8d;
     display: inline-block;
     margin: 0 0 2em 0;
     padding: 0 0.75em 0.5em 0;
@@ -1819,6 +1819,8 @@ input[type="radio"] + label:before {
     display: block;
     margin: 0 0 3em 0;
     width: 100%;
+    /* max-height: 400px;
+    overflow: hidden; */
 }
 .image.main img {
     width: 100%;
@@ -2881,12 +2883,12 @@ button:disabled,
 }
 @media screen and (max-width: 1680px) {
     #header {
-        padding-top: 5em;
+        padding-top: 2em;
     }
 }
 @media screen and (max-width: 736px) {
     #header {
-        padding-top: 6.5em;
+        padding-top: 1em;
     }
     #header .logo {
         font-size: 1.25em;

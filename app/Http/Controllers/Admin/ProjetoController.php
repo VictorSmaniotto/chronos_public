@@ -73,6 +73,15 @@ class ProjetoController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
+    public function show($id)
+    {
+        return view('admin.projetos.visualizar', [
+            'projeto' => Projeto::findOrFail($id)
+        ]);
+    }
+
+
+
     public function edit($id)
     {
         $projeto = Projeto::findOrFail($id);

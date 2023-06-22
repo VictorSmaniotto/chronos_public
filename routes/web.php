@@ -23,6 +23,7 @@ Route::post('/login/autenticar', [LoginController::class, 'autenticar'])->name('
 Route::get('/cadastrar', [LoginController::class, 'registrar'])->name('auth.registro');
 
 Route::get('/', [SiteController::class, 'index'])->name('site.index');
+Route::get('/visualizar/{id}', [SiteController::class, 'show'])->name('site.visualizar');
 
 
 Route::middleware('auth')->group(function () {
