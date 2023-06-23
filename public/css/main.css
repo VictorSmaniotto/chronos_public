@@ -1,22 +1,13 @@
 @import url(fontawesome-all.min.css);
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,400italic,600italic|Roboto+Slab:400,700");
 
-:root{
+:root {
     --azul-primario: #004587;
-    --azul-claro: #0052A1;
-    --azul-des: #0E6094;
-    --laranja-escuro: #FF7F00;
-    --laranja-claro: #F7941D;
-
+    --azul-claro: #0052a1;
+    --azul-des: #0e6094;
+    --laranja-escuro: #ff7f00;
+    --laranja-claro: #f7941d;
 }
-
-
-
-
-
-
-
-
 
 html,
 body,
@@ -1545,7 +1536,7 @@ header p {
 }
 
 header.major > :last-child {
-    border-bottom: solid 3px  var(--laranja-claro);
+    border-bottom: solid 3px var(--laranja-claro);
     display: inline-block;
     margin: 0 0 2em 0;
     padding: 0 0.75em 0.5em 0;
@@ -2899,7 +2890,16 @@ button:disabled,
         padding-top: 2em;
     }
     #header .icons .btn i {
-        color: #0052a1;
+        color: var(--azul-claro);
+        width: 1.2rem;
+    }
+
+    #header .icons span {
+        color: var(--azul-claro);
+    }
+
+    #header .icons span:active::after {
+        color: var(--azul-des);
     }
 }
 @media screen and (max-width: 736px) {
@@ -2919,7 +2919,10 @@ button:disabled,
     #header .icons .btn i {
         margin-top: 20px;
         width: 1em;
-        color: #0052a1;
+        color: var(--azul-claro);
+    }
+    #header .icons span {
+        display: none;
     }
 
     #header .icons {

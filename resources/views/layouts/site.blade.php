@@ -46,7 +46,7 @@
               </li> --}}
 
               <li>
-                <a href="{{ route('login') }}" class="icon btn"><i class="fa fa-user"></i></a>
+                <a href="{{ route('login') }}" class="icon btn"><i class="fa fa-user"></i><span class="ms-1">Entrar</span></a>
               </li>
 
             </ul>
