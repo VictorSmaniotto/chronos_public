@@ -18,14 +18,16 @@ use App\Http\Controllers\Site\SiteController;
 |
 */
 
+// Login
 Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/login/autenticar', [LoginController::class, 'autenticar'])->name('auth.login.autenticar');
 Route::get('/cadastrar', [LoginController::class, 'registrar'])->name('auth.registro');
 
+// Site
 Route::get('/', [SiteController::class, 'index'])->name('site.index');
 Route::get('/visualizar/{id}', [SiteController::class, 'show'])->name('site.visualizar');
 
-
+// Painel admin
 Route::middleware('auth')->group(function () {
     Route::get('/logout', [LoginController::class, 'logout'])->name('auth.login.logout');
 
