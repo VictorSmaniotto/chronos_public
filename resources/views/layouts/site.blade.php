@@ -27,8 +27,8 @@
         <div class="inner">
           <!-- Header -->
           <header id="header">
-            <a href="index.html" class="logo"
-              ><img src="{{ asset('img/logoChronos.png') }}" alt="" width="170"></a
+            <a href="{{ route('site.index') }}" class="logo"
+              ><img src="{{ asset('img/logoChronos.png') }}" alt="Logotipo" width="150"></a
             >
             <ul class="icons">
               <li>
@@ -46,7 +46,7 @@
               </li> --}}
 
               <li>
-                <a href="{{ route('login') }}" class="btn btn-outline-primary button">Entrar</a>
+                <a href="{{ route('login') }}" class="icon btn"><i class="fa fa-user"></i></a>
               </li>
 
             </ul>
