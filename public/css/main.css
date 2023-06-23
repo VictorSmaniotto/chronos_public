@@ -1,10 +1,23 @@
 @import url(fontawesome-all.min.css);
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,400italic,600italic|Roboto+Slab:400,700");
-/*
-	Editorial by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
+
+:root{
+    --azul-primario: #004587;
+    --azul-claro: #0052A1;
+    --azul-des: #0E6094;
+    --laranja-escuro: #FF7F00;
+    --laranja-claro: #F7941D;
+
+}
+
+
+
+
+
+
+
+
+
 html,
 body,
 div,
@@ -1532,7 +1545,7 @@ header p {
 }
 
 header.major > :last-child {
-    border-bottom: solid 3px #004a8d;
+    border-bottom: solid 3px  var(--laranja-claro);
     display: inline-block;
     margin: 0 0 2em 0;
     padding: 0 0.75em 0.5em 0;
@@ -2861,7 +2874,7 @@ button:disabled,
     display: -webkit-flex;
     display: -ms-flex;
     display: flex;
-    border-bottom: solid 5px #0052a1;
+    border-bottom: solid 3px var(--laranja-claro);
     padding: 6em 0 1em 0;
     position: relative;
 }
