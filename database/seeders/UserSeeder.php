@@ -23,7 +23,9 @@ class UserSeeder extends Seeder
             'password' => bcrypt('admin@smaniotto23'),
             'remember_token' => Str::random(10),
             'perfil' => 'administrador'
-        ], [
+        ]);
+
+        User::create([
             'nome' => 'Lais M Osaka',
             'email' => 'lais.mosaka@senacsp.edu.br',
             'password' => bcrypt('admin@osaka23'),
