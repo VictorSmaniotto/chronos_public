@@ -56,5 +56,5 @@ jobs:
         with:
           app-name: 'SouChronos'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_85EA72505DD04A87BCC62A3EB407170C }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_5DCD9E19877A45539769D89DAB07C95D }}
           package: .
