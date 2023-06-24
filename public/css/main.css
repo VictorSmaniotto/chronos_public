@@ -2869,7 +2869,7 @@ button:disabled,
     display: -ms-flex;
     display: flex;
     border-bottom: solid 3px var(--laranja-claro);
-    padding: 6em 0 1em 0;
+    padding: 2em 0 1em 0;
     position: relative;
 }
 #header > * {
@@ -2887,6 +2887,19 @@ button:disabled,
 }
 #header .icons {
     text-align: right;
+}
+
+#header .icons .btn i {
+    color: var(--azul-claro);
+    width: 1.2rem;
+}
+
+#header .icons span {
+    color: var(--azul-claro);
+}
+
+#header .icons span:active::after {
+    color: var(--azul-des);
 }
 @media screen and (max-width: 1680px) {
     #header {
