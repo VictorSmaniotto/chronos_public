@@ -45,9 +45,14 @@
                 >
               </li> --}}
 
+              @if ($usuario)
+                <a href="{{ route('login') }}"><img src="{{ $usuario->foto }}" alt="Foto do usuário" class="img-fluid rounded-circle" style="width: 50px;"></a>
+              @else
               <li>
                 <a href="{{ route('login') }}" class="icon btn"><i class="fa fa-user"></i><span class="ms-1">Entrar</span></a>
               </li>
+              @endif
+
 
             </ul>
           </header>

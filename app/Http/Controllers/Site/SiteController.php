@@ -7,13 +7,16 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Categoria;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class SiteController extends Controller
 {
     public function index()
     {
+        $usuario = Auth::user();
         return view('site.index', [
-            'projetos' => Projeto::all()
+            'projetos' => Projeto::all(),
+            'usuario' => $usuario
         ]);
     }
 
