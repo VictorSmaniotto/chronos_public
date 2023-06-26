@@ -25,11 +25,11 @@ class LoginController extends Controller
     public function logout()
     {
         Auth::logout();
-        return redirect('/login');
+        return redirect('/');
     }
 
     public function registrar()
     {
-        return view('auth.registro');
+        return view('auth.registro'); //teste
     }
 }

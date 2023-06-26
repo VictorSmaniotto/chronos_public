@@ -98,6 +98,14 @@ video {
     vertical-align: baseline;
 }
 
+.rounded-circle-custom {
+    border-radius: 50%;
+    object-fit: cover;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+}
+
 article,
 aside,
 details,
@@ -232,6 +240,14 @@ textarea {
     textarea {
         font-size: 10pt;
     }
+    .rounded-circle-custom {
+        border-radius: 50%;
+        object-fit: cover;
+        width: 35px;
+        height: 35px;
+        overflow: hidden;
+        margin-top: 20px;
+    }
 }
 @media screen and (max-width: 360px) {
     body,
@@ -249,7 +265,7 @@ a {
         border-bottom-color 0.2s ease-in-out;
     -ms-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
     transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
-    border-bottom: dotted 1px;
+    /* border-bottom: dotted 1px; */
     color: #151e9c;
     text-decoration: none;
 }
@@ -334,6 +350,13 @@ h6 {
 @media screen and (max-width: 980px) {
     h1 {
         font-size: 3.25em;
+    }
+    .rounded-circle-custom {
+        border-radius: 50%;
+        object-fit: cover;
+        width: 35px;
+        height: 35px;
+        overflow: hidden;
     }
 }
 
@@ -2917,6 +2940,10 @@ button:disabled,
     #header .icons span:active::after {
         color: var(--azul-des);
     }
+
+    .rounded-circle-custom {
+        margin-top: 0;
+    }
 }
 @media screen and (max-width: 736px) {
     #header {
@@ -2947,6 +2974,12 @@ button:disabled,
         position: absolute;
         right: -0.5em;
         top: 0;
+    }
+
+    .rounded-circle-custom {
+        margin-top: 30px;
+        width: 25px;
+        height: 25px;
     }
 }
 
