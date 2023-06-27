@@ -49,6 +49,6 @@ class PerfilController extends Controller
 
         $usuario->save();
 
-        return redirect()->route('admin.usuarios.index')->with('sucesso', 'Usuário editado com sucesso! 😃');
+        return redirect()->route('site.index')->with('sucesso', 'Usuário editado com sucesso! 😃');
     }
 }
