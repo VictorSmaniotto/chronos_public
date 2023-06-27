@@ -23,6 +23,7 @@
           <script src="{{ asset('editor/tinymce.min.js') }}"></script>
 
     <title>@yield('titulo') :: Área Administrativa</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('icon/logochronos_icon.ico') }}">
 
     <style>
         body {

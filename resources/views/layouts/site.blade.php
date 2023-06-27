@@ -2,7 +2,8 @@
 
 <html>
   <head>
-    <title>Chronos::Projetos</title>
+    <title>Chronos</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('icon/logochronos_icon.ico') }}">
     <meta charset="utf-8" />
     <meta
       name="viewport"
