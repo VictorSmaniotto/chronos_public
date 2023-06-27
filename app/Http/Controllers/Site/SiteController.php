@@ -13,10 +13,10 @@ class SiteController extends Controller
 {
     public function index()
     {
-        $usuario = Auth::user();
+
         return view('site.index', [
             'projetos' => Projeto::all(),
-            'usuario' => $usuario
+
         ]);
     }
 
@@ -25,12 +25,12 @@ class SiteController extends Controller
     {
         $projeto = Projeto::findOrFail($id);
         $categoria = Categoria::all();
-        $usuario = Auth::user();
+
         return view('site.visualizar', [
             'projeto' => $projeto,
             'data' => Carbon::parse($projeto->updated_at),
             'categoria' => $categoria,
-            'usuario' => $usuario
+
         ]);
     }
 }

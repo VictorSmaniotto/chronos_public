@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\UsuarioController;
 use App\Http\Controllers\Admin\CategoriaController;
 use App\Http\Controllers\Admin\ProjetoController;
+use App\Http\Controllers\Profile\PerfilController;
 use App\Http\Controllers\Site\SiteController;
 
 /*
@@ -35,6 +36,9 @@ Route::middleware('auth')->group(function () {
         return view('layouts.admin');
     });
 
+    Route::get('admin/perfil', [PerfilController::class, 'perfil'])->name('admin.perfil');
+    Route::put('admin/perfil/atualizar', [PerfilController::class, 'updatePerfil'])->name('admin.perfil.atualizar');
+
 
     Route::get('/admin/usuarios', [UsuarioController::class, 'index'])->name('admin.usuarios.index');
     Route::get('/admin/usuarios/cadastrar', [UsuarioController::class, 'create'])->name('admin.usuarios.create');
@@ -42,6 +46,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/usuarios/editar/{id}', [UsuarioController::class, 'edit'])->name('admin.usuarios.edit');
     Route::put('/admin/usuarios/atualizar/{id}', [UsuarioController::class, 'update'])->name('admin.usuarios.update');
     Route::delete('admin/usuarios/deletar/{id}', [UsuarioController::class, 'destroy'])->name('admin.usuarios.destroy');
+    // Route::get('/admin/editar/profile', [UsuarioController::class, 'profile'])->nome('admin.usuarios.perfil');
 
     Route::get('/admin/categorias', [CategoriaController::class, 'index'])->name('admin.categorias.index');
     Route::get('/admin/categorias/cadastrar', [CategoriaController::class, 'create'])->name('admin.categorias.create');
