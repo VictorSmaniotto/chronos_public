@@ -5,7 +5,7 @@
 <section id="banner">
     <div class="content">
       <header>
-        <h1>
+        <h1 class="fs-1">
           Bem vindo(a) ao Chronos
         </h1>
         <p>Acompanhe os projetos desenvolvidos por sua comunidade</p>

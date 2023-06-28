@@ -48,5 +48,5 @@
 
 <div class="col-12">
     <button type="submit" class="btn btn-primary">Salvar</button>
-    <a href="{{ route('admin.usuarios.index') }}" class="btn btn-danger">Cancelar</a>
+    <a href="{{ route('site.index') }}" class="btn btn-danger">Cancelar</a>
 </div>
