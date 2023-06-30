@@ -60,7 +60,7 @@ class ProjetoController extends Controller
         if ($request->hasFile('capa')) {
             $capa = $request->file('capa');
             $capaNome = $capa->hashName();
-            $capaPath = $capa->storeAs('public/projetos/', $capaNome);
+            $capaPath = $capa->storeAs('public/projetos', $capaNome);
             $projeto->capa = Storage::url($capaPath);
         }
 
@@ -114,7 +114,7 @@ class ProjetoController extends Controller
             Storage::delete('public/projetos/' . basename($projeto->capa));
             $capa = $request->file('capa');
             $capaNome = Str::random(40);
-            $capaPath = $capa->storeAs('public/projetos/', $capaNome);
+            $capaPath = $capa->storeAs('public/projetos', $capaNome);
             $projeto->capa = Storage::url($capaPath);
         }
 

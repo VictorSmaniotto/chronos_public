@@ -42,7 +42,7 @@ class PerfilController extends Controller
         if ($request->hasFile('foto')) {
             $foto = $request->file('foto');
             $fotoNome = $foto->hashName();
-            $fotoPath = $foto->storeAs('public/usuarios/', $fotoNome);
+            $fotoPath = $foto->storeAs('public/usuarios', $fotoNome);
             $usuario->foto = Storage::url($fotoPath);
         }
 
