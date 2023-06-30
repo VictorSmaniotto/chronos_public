@@ -11,7 +11,7 @@
 
 <div class="col-md-12">
     @if ($usuario->foto)
-        <img src="{{ $usuario->foto }}" alt="Foto de Perfil" class="img-fluid rounded" style="max-height: 300px">
+        <img src="{{ asset($usuario->foto) }}" alt="Foto de Perfil" class="img-fluid rounded" style="max-height: 300px">
     @endif
 </div>
 

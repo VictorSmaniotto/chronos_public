@@ -19,7 +19,7 @@
         Categoria: {{ $projeto->categoria->nome }}
     </span>
     <span class="image main"
-      ><img src="{{ $projeto->capa }}" alt=""
+      ><img src="{{ asset($projeto->capa) }}" alt=""
     /></span>
 
     <p>

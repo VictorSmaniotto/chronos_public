@@ -49,7 +49,7 @@
 
               @if (Auth::user())
                <li>
-                <a href="{{ route('admin.perfil') }}"><img src="{{ Auth::user()->foto }}" alt="Foto do usuário" class="img-fluid rounded-circle-custom"></a>
+                <a href="{{ route('admin.perfil') }}"><img src="{{ asset(Auth::user()->foto) }}" alt="Foto do usuário" class="img-fluid rounded-circle-custom"></a>
                </li>
               @else
               <li>
