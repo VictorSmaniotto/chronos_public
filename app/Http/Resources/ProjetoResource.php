@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -18,9 +19,10 @@ class ProjetoResource extends JsonResource
             'id' => $this->id,
             'capa' => url($this->capa),
             'titulo' => $this->titulo,
-            'descricao' => $this->descricao,
+            'descricao' => Str::limit(html_entity_decode(strip_tags($this->descricao)), 100),
             'categoria_id' => $this->categoria_id,
-            'categoria_nome' => $this->categoria->nome
+            'categoria_nome' => $this->categoria->nome,
+            'link' => route('site.mobile.visualizar', $this->id)
         ];
     }
 }

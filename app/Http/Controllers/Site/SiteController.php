@@ -33,4 +33,25 @@ class SiteController extends Controller
 
         ]);
     }
+
+    public function mobileIndex()
+    {
+        return view('site.mobile.index', [
+            'projetos' => Projeto::all(),
+
+        ]);
+    }
+
+    public function mobileShow($id)
+    {
+        $projeto = Projeto::findOrFail($id);
+        $categoria = Categoria::all();
+
+        return view('site.mobile.visualizar', [
+            'projeto' => $projeto,
+            'data' => Carbon::parse($projeto->updated_at),
+            'categoria' => $categoria,
+
+        ]);
+    }
 }

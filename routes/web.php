@@ -28,6 +28,10 @@ Route::get('/cadastrar', [LoginController::class, 'registrar'])->name('auth.regi
 Route::get('/', [SiteController::class, 'index'])->name('site.index');
 Route::get('/visualizar/{id}', [SiteController::class, 'show'])->name('site.visualizar');
 
+// APP
+Route::get('/mobile', [SiteController::class, 'mobileIndex'])->name('site.mobile.index');
+Route::get('/mobile/visualizar/{id}', [SiteController::class, 'mobileShow'])->name('site.mobile.visualizar');
+
 // Painel admin
 Route::middleware('auth')->group(function () {
     Route::get('/logout', [LoginController::class, 'logout'])->name('auth.login.logout');
