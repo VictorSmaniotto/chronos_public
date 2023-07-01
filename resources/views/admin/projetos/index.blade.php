@@ -33,7 +33,10 @@
                     </thead>
                     <tbody>
 
-                        @foreach ($projetos as $proj)
+                        @forelse ($projetos as $proj)
+
+
+
                             <tr>
                                 <th scope="row">{{ $proj->id }}</th>
                                 <td>{{ $proj->titulo }}</td>
@@ -50,7 +53,12 @@
                                     </form>
                                 </td>
                             </tr>
-                        @endforeach
+                            @empty
+                            <tr>
+                                <td colspan="6" class="text-center">Nenhum Projeto Cadastrado</td>
+                            </tr>
+
+                        @endforelse
 
 
                     </tbody>

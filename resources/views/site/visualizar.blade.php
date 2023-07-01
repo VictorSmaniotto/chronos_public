@@ -2,7 +2,7 @@
 
 @section('conteudo')
  <!-- Content -->
- <section>
+ <section class="container">
     <header class="main">
       <h1>{{ $projeto->titulo }}</h1>
     </header>
@@ -22,7 +22,7 @@
       ><img src="{{ asset($projeto->capa) }}" alt=""
     /></span>
 
-    <p>
+    <p id="descricao-projeto">
       {!! $projeto->descricao !!}
     </p>
 

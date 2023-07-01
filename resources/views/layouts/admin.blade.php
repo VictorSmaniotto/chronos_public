@@ -216,11 +216,17 @@
     </footer>
     <script>
         tinymce.init({
-            selector: '#descricao' ,
-            menubar: true,
+            selector: '#descricao',
+            menubar: 'file edit view insert format table tools',
             language: 'pt_BR',
             width: '100%',
-            height: '500px'
+            height: '500px',
+            plugins: 'code link image table responsivofilemanager',
+            toolbar1: "undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | styleselect | responsivefilemanager |  image media | forecolor backcolor  |  code ",
+            image_advtab: true ,
+            image_class_list: [
+            { title: 'Responsive', value: 'img-fluid' }
+        ]
         });
     </script>
 

@@ -18,7 +18,7 @@ class UserSeeder extends Seeder
         $faker = Faker::create('pt_BR');
 
         User::create([
-            'nome' => 'Victor R Smaniotto',
+            'nome' => 'Victor Rodrigues Smaniotto',
             'email' => 'victor.rsmaniotto@senacsp.edu.br',
             'password' => bcrypt('admin@smaniotto23'),
             'remember_token' => Str::random(10),
