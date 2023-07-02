@@ -2,7 +2,7 @@
 
 @section('conteudo')
  <!-- Content -->
- <section class="container">
+ <section class="container section-mobile">
     <header class="main">
       <h1>{{ $projeto->titulo }}</h1>
     </header>

@@ -106,6 +106,10 @@ video {
     overflow: hidden;
 }
 
+.section-mobile {
+    padding-top: 0.5rem !important;
+}
+
 article,
 aside,
 details,

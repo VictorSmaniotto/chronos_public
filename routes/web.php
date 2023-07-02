@@ -1,12 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Admin\UsuarioController;
-use App\Http\Controllers\Admin\CategoriaController;
-use App\Http\Controllers\Admin\ProjetoController;
-use App\Http\Controllers\Profile\PerfilController;
 use App\Http\Controllers\Site\SiteController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Admin\ProjetoController;
+use App\Http\Controllers\Admin\UsuarioController;
+
+use App\Http\Controllers\Profile\PerfilController;
+use App\Http\Controllers\Admin\CategoriaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,8 +41,8 @@ Route::middleware('auth')->group(function () {
         return view('layouts.admin');
     });
 
-    Route::get('admin/perfil', [PerfilController::class, 'perfil'])->name('admin.perfil');
-    Route::put('admin/perfil/atualizar', [PerfilController::class, 'updatePerfil'])->name('admin.perfil.atualizar');
+    Route::get('/admin/perfil', [PerfilController::class, 'perfil'])->name('admin.perfil');
+    Route::put('/admin/perfil/atualizar', [PerfilController::class, 'updatePerfil'])->name('admin.perfil.atualizar');
 
 
     Route::get('/admin/usuarios', [UsuarioController::class, 'index'])->name('admin.usuarios.index');
