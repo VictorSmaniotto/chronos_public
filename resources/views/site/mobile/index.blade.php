@@ -79,7 +79,7 @@
   </section> -->
 
   <!-- Section -->
-  <section>
+  <section class="section-mobile">
     <header class="major">
       <h2>PROJETOS</h2>
     </header>
