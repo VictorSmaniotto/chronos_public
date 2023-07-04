@@ -23,6 +23,7 @@ use App\Http\Controllers\Site\SiteController;
 Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/login/autenticar', [LoginController::class, 'autenticar'])->name('auth.login.autenticar');
 Route::get('/cadastrar', [LoginController::class, 'registrar'])->name('auth.registro');
+Route::post('/armazenar', [LoginController::class, 'armazenar'])->name('auth.armazenar');
 
 // Site
 Route::get('/', [SiteController::class, 'index'])->name('site.index');

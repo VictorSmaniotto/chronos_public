@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
@@ -30,6 +31,31 @@ class LoginController extends Controller
 
     public function registrar()
     {
-        return view('auth.registro'); //teste
+        return view('auth.registro', [
+            'usuario' => new User()
+        ]); //teste
+
+    }
+
+    public function armazenar(Request $request)
+    {
+        $request->validate([
+            'nome' => 'required',
+            'email' => 'required',
+            'password' => 'required|confirmed|min:8',
+        ]);
+
+
+        $usuario = new User();
+        $usuario->nome = $request->nome;
+        $usuario->email = $request->email;
+        $usuario->password = bcrypt($request->password);
+
+
+
+
+        $usuario->save();
+
+        return redirect()->route('login')->with('sucesso', 'Usuário cadastrado com sucesso! 😃');
     }
 }
