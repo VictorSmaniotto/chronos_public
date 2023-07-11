@@ -18,7 +18,7 @@ class AuthController extends Controller
                 'status' => true,
                 'nome' => $usuario->nome,
                 'email' => $usuario->email,
-                'foto' => $usuario->foto,
+                'foto' => url($usuario->foto),
                 'token' => $usuario->createToken('AppChronos')->plainTextToken
             ], 200);
         } else {
