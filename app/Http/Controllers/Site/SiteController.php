@@ -59,4 +59,9 @@ class SiteController extends Controller
     {
         return view('site.politica_de_privacidade');
     }
+
+    public function termos()
+    {
+        return view('site.termos_de_uso');
+    }
 }
