@@ -54,4 +54,9 @@ class SiteController extends Controller
 
         ]);
     }
+
+    public function politica()
+    {
+        return view('site.politica_de_privacidade');
+    }
 }
