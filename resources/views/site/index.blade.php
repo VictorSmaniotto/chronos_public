@@ -17,7 +17,7 @@
         Através do "Chronos", os usuários podem cadastrar-se, criar grupos, elaborar projetos e compartilhar informações importantes, como título, descrição, objetivo, categoria e membros do grupo. Além disso, o site oferece um mural de ajuda, onde os usuários podem interagir, tirar dúvidas, participar de pesquisas e trocar ideias.
       </p>
       <ul class="actions">
-        <li><a href="#" class="button big">Leia Mais</a></li>
+        <li><a href="{{ route('site.sobrenos') }}" class="button big">Leia Mais</a></li>
       </ul>
     </div>
     <span class="image object">
