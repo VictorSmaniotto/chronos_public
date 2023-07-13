@@ -28,6 +28,7 @@ Route::post('/armazenar', [LoginController::class, 'armazenar'])->name('auth.arm
 
 // Site
 Route::get('/', [SiteController::class, 'index'])->name('site.index');
+Route::get('/sobre-nos', [SiteController::class, 'sobrenos'])->name('site.sobrenos');
 Route::get('/visualizar/{id}', [SiteController::class, 'show'])->name('site.visualizar');
 Route::get('/politica-de-privacidade', [SiteController::class, 'politica'])->name('site.politica');
 Route::get('/termos-de-uso', [SiteController::class, 'termos'])->name('site.termos');

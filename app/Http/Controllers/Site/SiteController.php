@@ -64,4 +64,9 @@ class SiteController extends Controller
     {
         return view('site.termos_de_uso');
     }
+
+    public function sobrenos()
+    {
+        return view('site.sobrenos');
+    }
 }
