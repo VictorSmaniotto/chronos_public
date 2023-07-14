@@ -221,7 +221,7 @@
             language: 'pt_BR',
             width: '100%',
             height: '500px',
-            plugins: 'code link image table responsivofilemanager',
+            plugins: 'code link image table',
             toolbar1: "undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | styleselect | responsivefilemanager |  image media | forecolor backcolor  |  code ",
             image_advtab: true ,
             image_class_list: [

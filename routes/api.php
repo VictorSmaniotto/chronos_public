@@ -13,10 +13,10 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/logout', [AuthController::class, 'logout']);
 
     Route::get('/projetos/{id}', [ProjetoController::class, 'mostrarProjeto']);
-    Route::get('/categorias', [CategoriaController::class, 'listarCategorias']);
     Route::get('/usuario', [UsuarioController::class, 'usuario']);
 });
 
+Route::get('/categorias', [CategoriaController::class, 'listarCategorias']);
 Route::get('/projetos', [ProjetoController::class, 'listarProjetos']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/cadastrar', [UsuarioController::class, 'cadastrar']);

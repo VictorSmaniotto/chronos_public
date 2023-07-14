@@ -1,4 +1,4 @@
-@extends('layouts.site')
+@extends('layouts.siteMobile')
 
 @section('conteudo')
     <h2 class="mt-3"><span style="color: rgb(68, 68, 68);">Política Privacidade</span></h2>

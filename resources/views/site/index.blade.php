@@ -91,9 +91,9 @@
             /></a>
             <h3>{{ $pro->titulo }}</h3>
             <p>
-            {!! Str::limit($pro->descricao, 200, '...')!!}
+            {!! Str::limit($pro->descricao, 250, '...')!!}
             </p>
-            <ul class="actions">
+            <ul class="actions mt-5">
             <li><a href="{{ route('site.visualizar', $pro->id) }}" class="button">Ver Mais</a></li>
             </ul>
         </article>
