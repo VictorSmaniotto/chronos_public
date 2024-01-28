@@ -18,6 +18,7 @@ return new class extends Migration
             $table->tinyInteger('situacao');
             $table->string('capa')->nullable();
             $table->foreignId('categoria_id')->constrained();
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }

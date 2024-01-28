@@ -21,19 +21,30 @@ class PerfilController extends Controller
 
     public function updatePerfil(Request $request)
     {
+        // $usuario = Auth::user();
+
         $request->validate([
             'nome' => 'required',
-            'email' => 'required|email|unique:users,id,{$id}',
             'password' => 'nullable|min:8',
-            'perfil' => 'required',
         ]);
 
 
 
         $usuario = User::findOrFail(Auth::user()->id);
+        
         $usuario->nome = $request->nome;
-        $usuario->email = $request->email;
-        $usuario->perfil = $request->perfil;
+
+        if (Auth::user()->perfil == 'administrador') {
+            $request->validate([
+                'email' => 'required|email|unique:users,email,' . $usuario->id,
+                'perfil' => 'required',
+            ]);
+
+            $usuario->email = $request->email;
+            $usuario->perfil = $request->perfil;
+        }
+
+        
 
         if (!empty($request->password)) {
             $usuario->password = bcrypt($request->password);

@@ -18,6 +18,10 @@
         <i class="fa-solid fa-bookmark"></i>
         Categoria: {{ $projeto->categoria->nome }}
     </span>
+    <span class="text-muted mb-1">
+        <i class="fa-solid fa-user"></i>
+        Autor: {{ $projeto->autor->nome }}
+    </span>
     <span class="image main"
       ><img src="{{ asset($projeto->capa) }}" alt=""
     /></span>

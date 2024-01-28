@@ -8,6 +8,7 @@ use App\Models\Categoria;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class ProjetoController extends Controller
@@ -17,8 +18,16 @@ class ProjetoController extends Controller
      */
     public function index()
     {
-        $projetos = Projeto::all();
+
+        if(Auth::user()->perfil == 'administrador'){
+            $projetos = Projeto::all();
+            
+        } else{
+            $projetos = Auth::user()->projetos;
+        }
+
         $categorias = Categoria::all();
+        
         return view('admin.projetos.index', [
             'projetos' => $projetos,
             'categorias' => $categorias
@@ -56,6 +65,7 @@ class ProjetoController extends Controller
         $projeto->descricao = $request->descricao;
         $projeto->situacao = $request->situacao;
         $projeto->categoria_id = $request->categoria_id;
+        $projeto->user_id = Auth::id();
 
         if ($request->hasFile('capa')) {
             $capa = $request->file('capa');
@@ -66,7 +76,7 @@ class ProjetoController extends Controller
 
         $projeto->save();
 
-        return redirect()->route('admin.projetos.index')->with('sucesso', 'Projeto cadastrado com sucesso! 😃');
+        return redirect()->route('admin.projetos.index')->with('sucesso', 'Uau ' . Auth::user()->nome . '! Seu projeto cadastrado com sucesso! 😃');
     }
 
 
@@ -109,6 +119,10 @@ class ProjetoController extends Controller
         $projeto->descricao = $request->descricao;
         $projeto->situacao = $request->situacao;
         $projeto->categoria_id = $request->categoria_id;
+        
+        if($projeto->user_id != Auth::id() && Auth::user()->perfil !== 'administrador'){
+            return redirect()->route('admin.projetos.index')->with('erro', 'Você não tem permissão para alterar este projeto');
+        }
 
         if ($request->hasFile('capa')) {
             Storage::delete('public/projetos/' . basename($projeto->capa));
@@ -129,6 +143,10 @@ class ProjetoController extends Controller
     public function destroy($id)
     {
         $projeto = Projeto::findOrFail($id);
+
+        if($projeto->user_id != Auth::id()){
+            abort(403, 'Você não tem permissão para deletar este projeto.');
+        }
 
         if ($projeto->delete()) {
             Storage::delete('public/projetos/' . basename($projeto->capa));

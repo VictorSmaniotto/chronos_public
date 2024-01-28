@@ -11,12 +11,13 @@
     {{-- {{ route('admin.perfil.update', $usuario->id) }} --}}
 
     <div class="formulario">
-        <form action="{{ route('admin.perfil.atualizar', Auth::user()->id) }}"
+        <form action="{{ route('admin.perfil.atualizar')}}"
               class="row g-3"
               method="post"
               enctype="multipart/form-data">
+              @csrf
               @method('PUT')
-        @include('auth.perfil._formulario')
+        @include('auth.perfil._formulario', ['disableFields' => Auth::user()->perfil != 'administrador'])
         </form>
     </div>
 @endsection

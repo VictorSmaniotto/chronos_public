@@ -23,7 +23,7 @@
 <div class="col-md-12">
     <label for="email" class="form-label">E-mail</label>
     <input type="text" name="email" class="form-control" id="email" placeholder="Insira o E-mail"
-        value="{{ old('email', $usuario->email  ) }}">
+        value="{{ old('email', $usuario->email  ) }}" {{isset($disableFields) && $disableFields ? 'disabled readonly' : ''}}>
 
 </div>
 <div class="col-md-12">
@@ -40,7 +40,7 @@
 
 <div class="col-md-3">
     <label for="perfil" class="form-label">Perfil</label>
-    <select class="form-control" id="perfil" name="perfil">
+    <select class="form-control" id="perfil" name="perfil" {{isset($disableFields) && $disableFields ? 'disabled readonly' : ''}}>
         <option value="cliente" {{ (old('perfil', $usuario->perfil) == 'cliente') ? 'selected' : '' }}>Cliente</option>
         <option value="administrador" {{ (old('perfil', $usuario->perfil) == 'administrador') ? 'selected' : '' }}>Administrador</option>
     </select>

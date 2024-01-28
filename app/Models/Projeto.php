@@ -25,4 +25,9 @@ class Projeto extends Model
 
         return $situacao[$value] ?? $value;
     }
+
+    public function autor()
+{
+    return $this->belongsTo(User::class, 'user_id');
+}
 }

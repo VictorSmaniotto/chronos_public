@@ -48,7 +48,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/admin/perfil', [PerfilController::class, 'perfil'])->name('admin.perfil');
     Route::put('/admin/perfil/atualizar', [PerfilController::class, 'updatePerfil'])->name('admin.perfil.atualizar');
-
+    // Route::put('/admin/perfil/atualizar/user', [PerfilController::class, 'updatePerfilUser'])->name('admin.perfil.atualizar.user');
 
     Route::get('/admin/usuarios', [UsuarioController::class, 'index'])->name('admin.usuarios.index');
     Route::get('/admin/usuarios/cadastrar', [UsuarioController::class, 'create'])->name('admin.usuarios.create');

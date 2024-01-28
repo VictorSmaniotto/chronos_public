@@ -27,6 +27,7 @@
                             <th scope="col">Título</th>
                             <th scope="col">Categoria</th>
                             <th scope="col">Situação</th>
+                            <th scope="col">Autor</th>
                             <th scope="col"
                                 width="100">Ação</th>
                         </tr>
@@ -42,6 +43,7 @@
                                 <td>{{ $proj->titulo }}</td>
                                 <td>{{ $proj->categoria->nome }}</td>
                                 <td>{{ $proj->situacao }}</td>
+                                <td>{{ $proj->autor ? $proj->autor->nome : 'N/A' }}</td>
                                 <td class="d-flex">
                                     <a href="{{ route('admin.projetos.edit', $proj->id) }}"
                                     class="btn btn-primary btn-sm me-1"><i class="fas fa-edit"></i></a>
